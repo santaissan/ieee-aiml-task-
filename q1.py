@@ -1,35 +1,33 @@
-n = int(input("enter no. of element: "))
-numbers = list(map(int, input("enter the no separated by spaces: ").split()))
+n = int(input("how many no.? "))
+nums = list(map(int, input("enter them with space: ").split()))
 
-largest = numbers[0]
-for num in numbers:
-    if num > largest:
-        largest = num
-
-smallest = numbers[0]
-for num in numbers:
-    if num < smallest:
-        smallest = num
-
+big = nums[0]
+small = nums[0]
 total = 0
-for num in numbers:
-    total += num
+even = 0
+odd = 0
 
-even_count = 0
-odd_count = 0
-for num in numbers:
-    if num % 2 == 0:
-        even_count += 1
+for x in nums:
+    if x > big:
+        big = x
+    if x < small:
+        small = x
+    total = total + x
+    if x % 2 == 0:
+        even = even + 1
     else:
-        odd_count += 1
+        odd = odd + 1
 
-reversed_list = []
-for i in range(len(numbers) - 1, -1, -1):
-    reversed_list.append(numbers[i])
 
-print("Largest:", largest)
-print("Smallest:", smallest)
+rev = []
+i = len(nums) - 1
+while i >= 0:
+    rev.append(nums[i])
+    i = i - 1
+
+print("Largest:", big)
+print("Smallest:", small)
 print("Sum:", total)
-print("Even count:", even_count)
-print("Odd count:", odd_count)
-print("Reversed:", *reversed_list)
+print("Even count:", even)
+print("Odd count:", odd)
+print("Reversed:", *rev)
